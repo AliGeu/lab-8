@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/lab 8.1/conf/routes
-// @DATE:Mon Dec 11 14:23:00 GMT 2017
+// @DATE:Mon Dec 11 17:09:56 GMT 2017
 
 package router
 
@@ -43,6 +43,8 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """customer""", """controllers.HomeController.customer"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProduct""", """controllers.HomeController.addProduct"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProductSubmit""", """controllers.HomeController.addProductSubmit"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -104,6 +106,42 @@ class Routes(
     )
   )
 
+  // @LINE:14
+  private[this] lazy val controllers_HomeController_addProduct3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addProduct")))
+  )
+  private[this] lazy val controllers_HomeController_addProduct3_invoker = createInvoker(
+    HomeController_0.addProduct,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addProduct",
+      Nil,
+      "GET",
+      this.prefix + """addProduct""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:16
+  private[this] lazy val controllers_HomeController_addProductSubmit4_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addProductSubmit")))
+  )
+  private[this] lazy val controllers_HomeController_addProductSubmit4_invoker = createInvoker(
+    HomeController_0.addProductSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addProductSubmit",
+      Nil,
+      "POST",
+      this.prefix + """addProductSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -123,6 +161,18 @@ class Routes(
     case controllers_Assets_versioned2_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned2_invoker.call(Assets_1.versioned(path, file))
+      }
+  
+    // @LINE:14
+    case controllers_HomeController_addProduct3_route(params@_) =>
+      call { 
+        controllers_HomeController_addProduct3_invoker.call(HomeController_0.addProduct)
+      }
+  
+    // @LINE:16
+    case controllers_HomeController_addProductSubmit4_route(params@_) =>
+      call { 
+        controllers_HomeController_addProductSubmit4_invoker.call(HomeController_0.addProductSubmit)
       }
   }
 }

@@ -2,6 +2,13 @@
 
 @main("Products") {
  <p class="lead">Product Catalogue</p>
+
+ @* Display successful new product message from flash - if set *@
+ @if(flash.containsKey("success")) {
+   <div class="alert alert-success">
+      @flash.get("success")
+   </div>
+ }
   
 <table class="table table-bordered table-hover table-condensed">
   
@@ -49,5 +56,9 @@
   </tbody>
   
   </table>
-  
+  <p> 
+    <a href="@routes.HomeController.addProduct()">
+      <button class="btn btn-primary">Add a product</button>
+    </a>
+  </p>
   } 

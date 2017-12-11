@@ -1,3 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/lab 8.1/conf/routes:9:1: HomeController is already defined as object HomeController[0m
-[0m[[0m[31merror[0m] [0m[0mGET     /                           controllers.HomeController.customer.scala[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/lab 8.1/app/views/addProduct.scala.html:8:10: missing argument list for method apply in object form[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_,_)(_)` instead of `apply`.[0m
+[0m[[0m[31merror[0m] [0m[0m    @form(action=routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role -> "form")[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
